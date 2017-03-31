@@ -29,7 +29,7 @@ public class SequentialOrderList<E extends Comparable<E>> implements List<E> {
 	}
 	
 	private void insertAt(int index, E element) {
-		for (int i = size() - 1; i >= index; i--) {
+		for (int i = size() - 2; i >= index; i--) {
 			elements[i + 1] = elements[i];
 		}
 		elements[index] = element;
