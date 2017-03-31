@@ -1,6 +1,6 @@
 package br.com.unisinos.PokemonFinder;
 
-public class Chromosome {
+public class Chromosome implements Comparable<Chromosome>{
 	private int[] genes;
 	private int fitness;
 	
@@ -23,5 +23,16 @@ public class Chromosome {
 	
 	public void setFitness(int fitness) {
 		this.fitness = fitness;
+	}
+
+	@Override
+	public int compareTo(Chromosome obj) {
+		if (fitness < obj.getFitness()) {
+			return -1;
+		}
+		if (fitness > obj.getFitness()) {
+			return 1;
+		}
+		return 0;
 	}
 }
