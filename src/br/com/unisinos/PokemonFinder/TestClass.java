@@ -7,7 +7,7 @@ public class TestClass {
 	
 	public static void testList() {
 		int[] array = {1, 2, 3};
-		List<Chromosome> list = new SequentialOrderedList(10);
+		OrderedList<Chromosome> list = new SequentialOrderedList(10);
 		list.insert(new Chromosome(array, 10));
 		list.insert(new Chromosome(array, 9));
 		list.insert(new Chromosome(array, 8));

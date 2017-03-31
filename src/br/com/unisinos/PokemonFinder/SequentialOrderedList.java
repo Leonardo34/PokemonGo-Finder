@@ -1,6 +1,6 @@
 package br.com.unisinos.PokemonFinder;
 
-public class SequentialOrderedList<E extends Comparable<E>> implements List<E> {
+public class SequentialOrderedList<E extends Comparable<E>> implements OrderedList<E> {
 	private Object[] elements;
 
 	public SequentialOrderedList(int size) {
