@@ -35,4 +35,13 @@ public class Chromosome implements Comparable<Chromosome>{
 		}
 		return 0;
 	}
+	
+	@Override 
+	public String toString() {
+		String s = "Fitness: " + fitness + "\n";
+		for (int i = 0; i < genes.length; i++) {
+			s += "Gene[" + i + "] = " + genes[i] + "\n";
+		}
+		return s;
+	}
 }

@@ -7,6 +7,7 @@ public class TestClass {
 	public static void main(String[] args) {
 		testList();
 		testLoadMatrix();
+		testGenerateChromosome();
 	}
 	
 	public static void testList() {
@@ -41,5 +42,12 @@ public class TestClass {
 			e.printStackTrace();
 		}
 		pokemonGo.printMatriz();
+	}
+	
+	public static void testGenerateChromosome() {
+		PokemonGo pokemonGo = new PokemonGo();
+		for (int i = 0; i < 10; i++) {
+			System.out.println(pokemonGo.generateChromosome());
+		}
 	}
 }
