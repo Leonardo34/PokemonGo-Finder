@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class TestClass {
+	public static final String DIRECTORY = "C:/Users/Leonardo/Trab-Lab2-GrauA/Trab-Grau-A-Lab2/Matriz.txt";
+	
 	public static void main(String[] args) {
 		testList();
 		testLoadMatrix();
@@ -35,7 +37,7 @@ public class TestClass {
 	
 	public static void testLoadMatrix() {
 		PokemonGo pokemonGo = new PokemonGo();
-		File file = new File("C:/Users/Leonardo/Trab-Lab2-GrauA/Trab-Grau-A-Lab2/Matriz.txt");
+		File file = new File(DIRECTORY);
 		try {
 			pokemonGo.loadMatrix(file);
 		} catch (IOException e) {
@@ -46,6 +48,15 @@ public class TestClass {
 	
 	public static void testGenerateChromosome() {
 		PokemonGo pokemonGo = new PokemonGo();
+		File file = new File(DIRECTORY);
+		try {
+			pokemonGo.loadMatrix(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		int[] array = {0, 2, 6, 9, 12, 15};
+		Chromosome chromosome = new Chromosome(array, pokemonGo.distance(array));
+		System.out.println(chromosome);
 		for (int i = 0; i < 10; i++) {
 			System.out.println(pokemonGo.generateChromosome());
 		}

@@ -35,7 +35,7 @@ public class PokemonGo implements IPokemonGo {
 		genes[3] =  8 + (int) (Math.random() * 4);
 		genes[4] =  12 + (int) (Math.random() * 3);
 		genes[5] = 15;
-		return new Chromosome(genes,0);
+		return new Chromosome(genes, distance(genes));
 	}
 
 	@Override
@@ -46,8 +46,13 @@ public class PokemonGo implements IPokemonGo {
 
 	@Override
 	public int distance(int[] genes) {
-		// TODO
-		return 0;
+		int distance = 0;
+		int prev = genes[0];
+		for (int i = 1; i < genes.length; i++) {
+			distance += matriz[prev][genes[i]];
+			prev = genes[i];
+		}
+		return distance;
 	}
 
 	@Override
