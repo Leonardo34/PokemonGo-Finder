@@ -1,8 +1,12 @@
 package br.com.unisinos.PokemonFinder;
 
+import java.io.File;
+import java.io.IOException;
+
 public class TestClass {
 	public static void main(String[] args) {
 		testList();
+		testLoadMatrix();
 	}
 	
 	public static void testList() {
@@ -26,5 +30,16 @@ public class TestClass {
 				System.out.println(list.get(i).getFitness());
 			}
 		}
+	}
+	
+	public static void testLoadMatrix() {
+		PokemonGo pokemonGo = new PokemonGo();
+		File file = new File("C:/Users/Leonardo/Trab-Lab2-GrauA/Trab-Grau-A-Lab2/Matriz.txt");
+		try {
+			pokemonGo.loadMatrix(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		pokemonGo.printMatriz();
 	}
 }

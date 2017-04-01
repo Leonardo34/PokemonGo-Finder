@@ -14,14 +14,14 @@ public class PokemonGo implements IPokemonGo {
 				new BufferedReader(new FileReader(file))) {
 			String line;
 			int lineCount = 0;
-			while ((line = reader.readLine()) != null) {
+			while ((line = reader.readLine()) != null && lineCount < 16) {
 				String[] vert = line.split(";");
 				for (int i = 0; i < vert.length; i++) {
 					matriz[lineCount][i] = Integer.parseInt(vert[i]);
 				}
+				lineCount++;
 			}
 		}
-
 	}
 
 	@Override
@@ -52,6 +52,15 @@ public class PokemonGo implements IPokemonGo {
 	public void print() {
 		// TODO 
 
+	}
+	
+	public void printMatriz() {
+		for (int i = 0; i < matriz.length; i++) {
+			for (int j = 0; j < matriz[i].length; j++) {
+				System.out.print(matriz[i][j] + " ");
+			}
+			System.out.println();
+		}
 	}
 
 }
