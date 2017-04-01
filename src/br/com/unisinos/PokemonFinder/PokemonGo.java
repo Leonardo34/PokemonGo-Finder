@@ -6,7 +6,9 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class PokemonGo implements IPokemonGo {
-	private final int[][] matriz = new int[16][16];
+	private final int[][] matriz = new int[MAX_VERTICES][MAX_VERTICES];
+	private static final int MAX_VERTICES = 16;
+	private static final int MAX_CHROMOSOME_GENES = 6;
 
 	@Override
 	public void loadMatrix(File file) throws IOException {
@@ -14,9 +16,9 @@ public class PokemonGo implements IPokemonGo {
 				new BufferedReader(new FileReader(file))) {
 			String line;
 			int lineCount = 0;
-			while ((line = reader.readLine()) != null && lineCount < 16) {
+			while ((line = reader.readLine()) != null && lineCount < MAX_VERTICES) {
 				String[] vert = line.split(";");
-				for (int i = 0; i < vert.length; i++) {
+				for (int i = 0; i < vert.length && i < MAX_VERTICES; i++) {
 					matriz[lineCount][i] = Integer.parseInt(vert[i]);
 				}
 				lineCount++;
@@ -26,8 +28,14 @@ public class PokemonGo implements IPokemonGo {
 
 	@Override
 	public Chromosome generateChromosome() {
-		// TODO
-		return null;
+		int[] genes = new int[MAX_CHROMOSOME_GENES];
+		genes[0] = 0;
+		genes[1] =  1 + (int) (Math.random() * 3);
+		genes[2] =  4 + (int) (Math.random() * 4);
+		genes[3] =  8 + (int) (Math.random() * 4);
+		genes[4] =  12 + (int) (Math.random() * 3);
+		genes[5] = 15;
+		return new Chromosome(genes,0);
 	}
 
 	@Override
@@ -62,5 +70,4 @@ public class PokemonGo implements IPokemonGo {
 			System.out.println();
 		}
 	}
-
 }
