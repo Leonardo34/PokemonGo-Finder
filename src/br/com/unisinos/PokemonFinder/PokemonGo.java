@@ -12,6 +12,7 @@ public class PokemonGo implements IPokemonGo {
 	private static final int MAX_VERTICES = 16;
 	private static final int MAX_CHROMOSOME_GENES = 6;
 	private static final int MAX_CHROMOSOMES = 10;
+	private static final int MAX_GENERATED_CHROMOSOMES = 100;
 	
 	public PokemonGo() {
 		chromosomes = new SequentialSortedList(MAX_CHROMOSOMES);
@@ -62,8 +63,10 @@ public class PokemonGo implements IPokemonGo {
 
 	@Override
 	public void evolve() {
-		// TODO 
-
+		for (int i = 0; i < MAX_GENERATED_CHROMOSOMES; i++) {
+			Chromosome chromosome = generateChromosome();
+			chromosomes.insert(chromosome);
+		}
 	}
 
 	@Override
