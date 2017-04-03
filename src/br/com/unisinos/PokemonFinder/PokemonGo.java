@@ -6,9 +6,17 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class PokemonGo implements IPokemonGo {
-	private final int[][] matriz = new int[MAX_VERTICES][MAX_VERTICES];
+	private SortedList<Chromosome> chromosomes;
+	private final int[][] matriz;
+	
 	private static final int MAX_VERTICES = 16;
 	private static final int MAX_CHROMOSOME_GENES = 6;
+	private static final int MAX_CHROMOSOMES = 10;
+	
+	public PokemonGo() {
+		chromosomes = new SequentialSortedList(MAX_CHROMOSOMES);
+		matriz = new int[MAX_VERTICES][MAX_VERTICES];
+	}
 
 	@Override
 	public void loadMatrix(File file) throws IOException {
@@ -40,17 +48,14 @@ public class PokemonGo implements IPokemonGo {
 
 	@Override
 	public void insertOrderedChromosome(Chromosome chromosome) {
-		// TODO
-
+		chromosomes.insert(chromosome);
 	}
 
 	@Override
 	public int distance(int[] genes) {
 		int distance = 0;
-		int prev = genes[0];
 		for (int i = 1; i < genes.length; i++) {
-			distance += matriz[prev][genes[i]];
-			prev = genes[i];
+			distance += matriz[genes[i - 1]][genes[i]];
 		}
 		return distance;
 	}
@@ -63,8 +68,9 @@ public class PokemonGo implements IPokemonGo {
 
 	@Override
 	public void print() {
-		// TODO 
-
+		 for (int i = 0; i < chromosomes.size(); i++) {
+			 System.out.println(chromosomes.get(i));
+		 }
 	}
 	
 	public void printMatriz() {
