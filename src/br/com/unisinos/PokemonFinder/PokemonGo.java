@@ -6,13 +6,13 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class PokemonGo implements IPokemonGo {
-	private SortedList<Chromosome> chromosomes;
-	private final int[][] matriz;
-	
 	private static final int MAX_VERTICES = 16;
 	private static final int MAX_CHROMOSOME_GENES = 6;
 	private static final int MAX_CHROMOSOMES = 10;
 	private static final int MAX_GENERATED_CHROMOSOMES = 100;
+	
+	private final int[][] matriz;
+	private SortedList<Chromosome> chromosomes;
 	
 	public PokemonGo() {
 		chromosomes = new SequentialSortedList(MAX_CHROMOSOMES);

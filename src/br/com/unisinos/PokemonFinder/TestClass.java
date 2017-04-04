@@ -7,9 +7,10 @@ public class TestClass {
 	public static final String DIRECTORY = "C:/Users/Leonardo/Trab-Lab2-GrauA/Trab-Grau-A-Lab2/Matriz.txt";
 	
 	public static void main(String[] args) {
-		testList();
-		testLoadMatrix();
-		testGenerateChromosome();
+		//testList();
+		//testLoadMatrix();
+		//testGenerateChromosome();
+		testPokemonGo();
 	}
 	
 	public static void testList() {
@@ -60,5 +61,16 @@ public class TestClass {
 		for (int i = 0; i < 10; i++) {
 			System.out.println(pokemonGo.generateChromosome());
 		}
+	}
+	
+	public static void testPokemonGo() {
+		IPokemonGo pokemonGo = new PokemonGo();
+		try {
+			pokemonGo.loadMatrix(new File(DIRECTORY));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		pokemonGo.evolve();
+		pokemonGo.print();
 	}
 }
