@@ -15,7 +15,7 @@ public class PokemonGo implements IPokemonGo {
 	private SortedList<Chromosome> chromosomes;
 	
 	public PokemonGo() {
-		chromosomes = new SequentialSortedList(MAX_CHROMOSOMES);
+		chromosomes = new StaticSequentialSortedList<>(MAX_CHROMOSOMES);
 		matriz = new int[MAX_VERTICES][MAX_VERTICES];
 	}
 
