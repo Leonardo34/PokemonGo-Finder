@@ -1,8 +1,8 @@
 package br.com.unisinos.PokemonFinder;
 
 /*
- * Lista sequencial ordenada baseada em Array. Não permite itens repetidos, e possui 
- * tamanho estático, ou seja, não é redimensionável. 
+ * Lista sequencial ordenada baseada em Array. Não permite itens repetidos, não permite 
+ * remoção e possui  tamanho estático, ou seja, não é redimensionável. 
  */
 
 public class StaticSequentialSortedList<E extends Comparable<E>> implements SortedList<E> {

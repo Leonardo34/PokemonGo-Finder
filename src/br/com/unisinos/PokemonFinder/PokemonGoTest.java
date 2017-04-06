@@ -19,9 +19,5 @@ public class PokemonGoTest {
 		}
 		pokemonGo.evolve();
 		pokemonGo.print();
-		
-		for (int i = 0; i < 100; i++) {
-			System.out.println(8 + (int) (Math.random() * 4));
-		}
 	}
 }
