@@ -5,4 +5,5 @@ public interface SortedList<E> {
 	public void insert(E element);
 	public int size();
 	public boolean contains(E element);
+	public boolean isFull();
 }

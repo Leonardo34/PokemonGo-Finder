@@ -42,6 +42,7 @@ public class StaticSequentialSortedList<E extends Comparable<E>> implements Sort
 		return false;
 	}
 	
+	@Override
 	public boolean isFull() {
 		return size == elements.length;
 	}

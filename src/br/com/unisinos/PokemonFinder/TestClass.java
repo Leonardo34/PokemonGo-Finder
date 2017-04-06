@@ -7,10 +7,10 @@ public class TestClass {
 	public static final String DIRECTORY = "C:/Users/Leonardo/Trab-Lab2-GrauA/Trab-Grau-A-Lab2/Matriz.txt";
 	
 	public static void main(String[] args) {
-		testList();
+		//testList();
 		//testLoadMatrix();
 		//testGenerateChromosome();
-		//testPokemonGo();
+		testPokemonGo();
 	}
 	
 	public static void testList() {
