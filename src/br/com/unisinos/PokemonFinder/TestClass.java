@@ -7,14 +7,15 @@ public class TestClass {
 	public static final String DIRECTORY = "C:/Users/Leonardo/Trab-Lab2-GrauA/Trab-Grau-A-Lab2/Matriz.txt";
 	
 	public static void main(String[] args) {
-		//testList();
+		testList();
 		//testLoadMatrix();
 		//testGenerateChromosome();
-		testPokemonGo();
+		//testPokemonGo();
 	}
 	
 	public static void testList() {
 		int[] array = {1, 2, 3};
+		int[] otherArray = {2, 5, 4};
 		SortedList<Chromosome> list = new StaticSequentialSortedList(10);
 		list.insert(new Chromosome(array, 10));
 		list.insert(new Chromosome(array, 9));
@@ -28,6 +29,9 @@ public class TestClass {
 		list.insert(new Chromosome(array, 1));
 		list.insert(new Chromosome(array, 3));
 		list.insert(new Chromosome(array, 5));
+		list.insert(new Chromosome(array, 12));
+		list.insert(new Chromosome(otherArray, 2));
+		list.insert(new Chromosome(otherArray, 3));
 		
 		for (int i = 0; i < list.size(); i++) {
 			if (list.get(i) != null) {

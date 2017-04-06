@@ -2,9 +2,11 @@ package br.com.unisinos.PokemonFinder;
 
 public class StaticSequentialSortedList<E extends Comparable<E>> implements SortedList<E> {
 	private Object[] elements;
+	private int size;
 
-	public StaticSequentialSortedList(int size) {
-		elements = new Object[size];
+	public StaticSequentialSortedList(int maxSize) {
+		elements = new Object[maxSize];
+		size = 0;
 	}
 
 	@Override
@@ -27,12 +29,12 @@ public class StaticSequentialSortedList<E extends Comparable<E>> implements Sort
 
 	@Override
 	public int size() {
-		return elements.length;
+		return size;
 	}
 	
 	@Override
 	public boolean contains(E element) {
-		for (int i = 0; i < size() && elements[i] != null; i++) {
+		for (int i = 0; i < size(); i++) {
 			if (elements[i].equals(element)) {
 				return true;
 			}
@@ -40,9 +42,20 @@ public class StaticSequentialSortedList<E extends Comparable<E>> implements Sort
 		return false;
 	}
 	
+	public boolean isFull() {
+		return size == elements.length;
+	}
+	
 	private void insertAt(int index, E element) {
-		for (int i = size() - 2; i >= index; i--) {
-			elements[i + 1] = elements[i];
+		if (isFull()) {
+			for (int i = size() - 2; i >= index; i--) {
+				elements[i + 1] = elements[i];
+			}
+		} else {
+			for (int i = size() - 1; i >= index; i--) {
+				elements[i + 1] = elements[i];
+			}
+			size++;
 		}
 		elements[index] = element;
 	}
