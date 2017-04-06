@@ -44,4 +44,21 @@ public class Chromosome implements Comparable<Chromosome>{
 		}
 		return s;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this.getClass() != obj.getClass()) {
+			return false;
+		}
+		Chromosome chromosome = (Chromosome) obj;
+		if (this.fitness != chromosome.fitness) {
+			return false;
+		}
+		for (int i = 0; i < genes.length; i++) {
+			if (genes[i] != chromosome.genes[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
 }

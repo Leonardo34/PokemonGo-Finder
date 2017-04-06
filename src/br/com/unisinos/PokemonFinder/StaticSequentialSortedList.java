@@ -33,7 +33,7 @@ public class StaticSequentialSortedList<E extends Comparable<E>> implements Sort
 	@Override
 	public boolean contains(E element) {
 		for (int i = 0; i < size() && elements[i] != null; i++) {
-			if (elements[i] != null && elements[i].equals(element)) {
+			if (elements[i].equals(element)) {
 				return true;
 			}
 		}
