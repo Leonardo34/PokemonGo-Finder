@@ -3,6 +3,10 @@ package br.com.unisinos.PokemonFinder;
 import java.io.File;
 import java.io.IOException;
 
+/*
+ * Classe utilizada para testes durante o desenvolvimento da aplicação.
+ */
+
 public class TestClass {
 	public static final String DIRECTORY = "C:/Users/Leonardo/Trab-Lab2-GrauA/Trab-Grau-A-Lab2/Matriz.txt";
 	

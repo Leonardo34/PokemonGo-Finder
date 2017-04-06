@@ -1,5 +1,11 @@
 package br.com.unisinos.PokemonFinder;
 
+/*
+ * Está classe representa um caminho entre o ponto de partida e o pokemon.
+ * Cada vértice deste caminho está representado no array de genes, o atributo 
+ * fitness representa a distancia total deste caminho.
+ */
+
 public class Chromosome implements Comparable<Chromosome> {
 	private int[] genes;
 	private int fitness;

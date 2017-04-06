@@ -3,6 +3,10 @@ package br.com.unisinos.PokemonFinder;
 import java.io.File;
 import java.io.IOException;
 
+/*
+ * Classe para rodar a aplicação.
+ */
+
 public class PokemonGoTest {
 	public static final String DIRECTORY = "C:/Users/Leonardo/Trab-Lab2-GrauA/Trab-Grau-A-Lab2/Matriz.txt";
 	
@@ -15,5 +19,9 @@ public class PokemonGoTest {
 		}
 		pokemonGo.evolve();
 		pokemonGo.print();
+		
+		for (int i = 0; i < 100; i++) {
+			System.out.println(8 + (int) (Math.random() * 4));
+		}
 	}
 }

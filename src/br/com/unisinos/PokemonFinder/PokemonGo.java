@@ -5,20 +5,29 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+/*
+ * Classe que implementa a lógica principal da aplicação, mantém uma matriz que representa
+ * o mapa para localizar pokemons. Guarda os melhores Chromosomes em uma Lista Ordenada de elementos.
+ */
+
 public class PokemonGo implements IPokemonGo {
 	private static final int MAX_VERTICES = 16;
 	private static final int MAX_CHROMOSOME_GENES = 6;
-	private static final int MAX_CHROMOSOMES = 10;
+	private static final int MAX_SAVED_CHROMOSOMES = 10;
 	private static final int MAX_GENERATED_CHROMOSOMES = 100;
 	
 	private final int[][] matriz;
 	private SortedList<Chromosome> chromosomes;
 	
 	public PokemonGo() {
-		chromosomes = new StaticSequentialSortedList<>(MAX_CHROMOSOMES);
+		chromosomes = new StaticSequentialSortedList<>(MAX_SAVED_CHROMOSOMES);
 		matriz = new int[MAX_VERTICES][MAX_VERTICES];
 	}
-
+	
+	/*
+	 * Carrega a matriz, ou seja, o mapa para calculo dos caminhos através de um 
+	 * arquivo de texto passado por parametro.
+	 */
 	@Override
 	public void loadMatrix(File file) throws IOException {
 		try (BufferedReader reader = 
@@ -35,6 +44,10 @@ public class PokemonGo implements IPokemonGo {
 		}
 	}
 
+	/*
+	 * Gera um chromosomo, ou seja, um caminho de forma aleátoria.
+	 * Delega ao método distance o calculo da distância total(fitness)
+	 */
 	@Override
 	public Chromosome generateChromosome() {
 		int[] genes = new int[MAX_CHROMOSOME_GENES];
@@ -52,6 +65,9 @@ public class PokemonGo implements IPokemonGo {
 		chromosomes.insert(chromosome);
 	}
 
+	/*
+	 * Calcula através da matriz previamente carregada a distancia total de um Chromosomo, ou seja, seu fitness.
+	 */
 	@Override
 	public int distance(int[] genes) {
 		int distance = 0;
@@ -61,11 +77,13 @@ public class PokemonGo implements IPokemonGo {
 		return distance;
 	}
 
+	/*
+	 * Gera 100 chromosomos de forma aleatória e insere na Lista de melhores chromosomos.
+	 */
 	@Override
 	public void evolve() {
 		for (int i = 0; i < MAX_GENERATED_CHROMOSOMES; i++) {
-			Chromosome chromosome = generateChromosome();
-			chromosomes.insert(chromosome);
+			insertOrderedChromosome(generateChromosome());
 		}
 	}
 
